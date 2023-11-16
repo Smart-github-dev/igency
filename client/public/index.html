@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Igency</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles/app.css"/>
+  </head>
+  <body>
+  	<div id="homemenu">
+    	<div id="menu">
+      	<div id="menucontent">
+        	<div id="settingsmenu" class="menu">
+          	<div id="keybinds" class="designAlphaDynamic submenu">
+            	<h1>Keybinds</h1>
+              <div>
+              	<span class="description">Up:</span>
+                <input id="keybindsup" class="designAlphaDynamic letteroption" type="text"/>
+              </div>
+              <div>
+              	<span class="description">Down:</span>
+                <input id="keybindsdown" class="designAlphaDynamic letteroption" type="text"/>
+              </div>
+              <div>
+              	<span class="description">Left:</span>
+                <input id="keybindsleft" class="designAlphaDynamic letteroption" type="text"/>
+              </div>
+              <div>
+              	<span class="description">Right:</span>
+                <input id="keybindsright" class="designAlphaDynamic letteroption" type="text"/>
+              </div>
+            </div>
+            <div id="ui" class="designAlphaDynamic submenu">
+            	<h1>User Interface</h1>
+              <div>
+              	<span class="description">Quality:</span>
+                <input id="quality" class="designAlphaDynamic numberoption" type="number"/>
+              </div>
+            </div>
+          </div>
+        	<div id="menuclose" class="designAlphaDynamic"></div>
+        </div>
+        <div id="menushadow"></div>
+      </div>
+    	<div id="sideleft">
+      	<div id="console" class="designAlphaDynamic icon"></div>
+        <div id="messages" class="designAlphaDynamic icon"></div>
+      	<div id="textures" class="designAlphaDynamic icon"></div>
+      	<div id="skins" class="designAlphaDynamic icon"></div>
+        <div id="settings" class="designAlphaDynamic icon"></div>
+        <div id="advancedsettings" class="designAlphaDynamic icon"></div>
+        <div id="save" class="designAlphaDynamic icon"></div>
+      </div>
+      <div id="sidecenter">
+      	<div id="title"></div>
+      	<canvas id="playerdisplay" class="designAlphaDynamic"></canvas>
+        <input id="username" class="designAlphaDynamic" type="text" placeholder="Username"/>
+        <div id="play" class="designAlphaDynamic"></div>
+      </div>
+      <div id="sideright">
+      	<div id="updates" class="designAlphaDynamic icon"></div>
+      	<div id="info" class="designAlphaDynamic icon"></div>
+        <div id="discord" class="designAlphaDynamic icon"></div>
+        <div id="github" class="designAlphaDynamic icon"></div>
+        <div id="help" class="designAlphaDynamic icon"></div>
+      </div>
+      <div id="version"></div>
+      <div id="background"></div>
+    </div>
+  	<canvas id="game"></canvas>
+  	<script type="module" src="./app.min.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+let definitions = {
+  player: {
+    type: "player",
+    id: "player",
+    username: null,
+    status: "alive",
+    roles: [],
+    skin: {
+      body: null,
+      hands: {
+        left: null,
+        right: null,
+      },
+    },
+    slots: [],
+    ammo: [],
+    health: 100,
+    angle: 0,
+    hit: false,
+    hitlock: true,
+    hitside: "both",
+    direction: [],
+    body: {
+      x: null,
+      y: null,
+    },
+    hands: {
+      left: {
+        x: null,
+        y: null,
+      },
+      right: {
+        x: null,
+        y: null,
+      },
+    },
+  },
+  weapons: {
+    melees: [
+      {
+        type: "melee",
+        id: "hands",
+        damage: 5,
+        stack: 1,
+        hit: "stab",
+        hitbox: {
+          width: 27,
+          health: 27,
+          offsetX: 0,
+          offsetY: 0,
+          angle: 0,
+        },
+        twoHanded: false,
+        ammo: false,
+        speed: false,
+        range: false,
+      },
+      {
+        type: "melee",
+        id: "knife",
+        damage: 7,
+        stack: 1,
+        hit: "stab",
+        hitbox: {
+          width: 30,
+          height: 70,
+          offsetX: 10,
+          offsetY: 20,
+          angle: -(Math.PI * 1.2),
+        },
+        twoHanded: false,
+        ammo: false,
+        speed: false,
+        range: false,
+      },
+      {
+        type: "melee",
+        id: "dagger",
+        damage: 8,
+        stack: 1,
+        hit: "whirl",
+        hitbox: {
+          width: 24,
+          height: 80,
+          offsetX: 10,
+          offsetY: 20,
+          angle: -(Math.PI * 0.2 + Math.PI),
+        },
+        twoHanded: false,
+        ammo: false,
+        speed: false,
+        range: false,
+      },
+      {
+        type: "melee",
+        id: "long_sword",
+        damage: 15,
+        stack: 1,
+        hit: "whirl",
+        hitbox: {
+          width: 40,
+          height: 150,
+          offsetX: 25,
+          offsetY: 40,
+          angle: -(Math.PI * 0.2 + Math.PI),
+        },
+        twoHanded: false,
+        ammo: false,
+        speed: false,
+        range: false,
+      },
+    ],
+    guns: [
+      {
+        type: "guns",
+        id: "pistol",
+        angle: 0,
+        distance: 0,
+        automatic: false,
+        bullets: {
+          count: 100,
+          reloadt: 800, //0.8s
+          speed: 10,
+          effective_range: 100, //100m
+          damage: 10,
+        },
+      },
+      {
+        type: "guns",
+        id: "m16",
+        angle: 0,
+        distance: 0,
+        automatic: true,
+        bullets: {
+          count: 1000,
+          reloadt: 100,
+          speed: 10,
+          effective_range: 100,
+          damage: 5,
+        },
+      },
+    ],
+  },
+};
+
+module.exports = definitions;
