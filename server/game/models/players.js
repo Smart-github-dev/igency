@@ -57,7 +57,7 @@ let players = {
         if (player.slots[weaponIndex].type === "guns") {
           isGun = true;
           if (player.hit === true) {
-            shoted = bullets.shot(player.slots[weaponIndex], player.angle);
+            shoted = bullets.shot(player.slots[weaponIndex]);
           }
         } else {
           if (player.hit === true) {

@@ -11,11 +11,11 @@ let bullets = {
     data.bullets.forEach(function (bullet) {
       var x = bullet.x;
       var y = bullet.y;
-      var width = 6;
+      var width = 5;
       var height = 12;
       var fillcolor = "red";
       var strokecolor = "yellow";
-      var linewidth = 2;
+      var linewidth = 1;
 
       if (render.onScreen(x, y, width, height) === false) {
         return;
@@ -28,7 +28,7 @@ let bullets = {
       render.ctx.save();
       render.ctx.translate(x, y);
       render.ctx.rotate(bullet.angle);
-      render.ctx.rect(0, 0, width, height);
+      render.ctx.rect(-width / 2, 0, width, height);
       if (fillcolor) {
         render.ctx.fillStyle = fillcolor;
         render.ctx.fill();

@@ -19,14 +19,16 @@ let bullets = {
   destory: function (i) {
     data.bullets.splice(i, 1);
   },
-  shot: function (gun, angle) {
+  shot: function (gun) {
     if (gun.bullets.count == 0) {
       return false;
     }
     var dt = Date.now();
     if (dt - gun.bullets.lastdt > gun.bullets.reloadt) {
+      let angle = gun.position.right.angle;
       data.bullets.push({
         type: gun.id,
+
         x: gun.position.right.x - (Math.sin(angle) * gun.height) / 2,
         y: gun.position.right.y + (Math.cos(angle) * gun.height) / 2,
         angle: angle,

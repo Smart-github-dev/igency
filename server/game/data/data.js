@@ -99,8 +99,6 @@ let data = {
           width: 25,
           height: 100,
           angle: 0,
-          distance: 0,
-          automatic: false,
           bullets: {
             count: 100,
             lastdt: 0,
@@ -120,8 +118,6 @@ let data = {
           width: 30,
           height: 230,
           angle: 0,
-          distance: 0,
-          automatic: true,
           bullets: {
             count: 1000,
             reloadt: 100,
