@@ -32,6 +32,12 @@ let players = {
       if (player.slots.selected === 4) {
         player.slots.active = player.slots.four;
       }
+      if (player.slots.selected === 5) {
+        player.slots.active = player.slots.five;
+      }
+      if (player.slots.selected === 6) {
+        player.slots.active = player.slots.six;
+      }
     });
   },
   calculateHands: function () {
