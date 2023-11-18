@@ -17,7 +17,7 @@ var B = function (pos, w, h) {
 const build = {
   maxWidth: 200,
   maxHeight: 200,
-  count: 15,
+  count: 25,
   minWidth: 20,
   minHeight: 20,
 };
@@ -31,12 +31,14 @@ const building = {
   calculatePositions: function () {
     for (var i = 0; i < data.buildings.length; i++) {
       var build = data.buildings[i];
-      var x = build.nextPos.x / 80;
-      var y = build.nextPos.y / 80;
-      build.nextPos.x -= x;
-      build.nextPos.y -= y;
-      build.body.pos.x += x * 100;
-      build.body.pos.y += y * 100;
+      // var x = build.nextPos.x / 80;
+      // var y = build.nextPos.y / 80;
+      // build.nextPos.x -= x;
+      // build.nextPos.y -= y;
+      // build.body.pos.x += x * 100;
+      // build.body.pos.y += y * 100;
+      build.nextPos.scale(0.8);
+      build.body.pos.add(build.nextPos);
       var s = hitObject(build.body.angle, build.nextAngle, 40);
       build.body.setAngle(s.newAngle);
     }
@@ -53,12 +55,13 @@ const building = {
     var body = P(V(x, y), [V(0, 0), V(w, 0), V(w, h), V(0, h)])
       .translate(-w / 2, -h / 2)
       .setAngle(0);
+    const heavy = randomRange(0, 1);
     data.buildings.push({
-      type: type,
+      type: heavy ? type : "madera",
       weight: weight,
       body: body,
-      heavy: randomRange(0, 1),
-      nextPos: { x: 0, y: 0 },
+      heavy: heavy,
+      nextPos: V(0, 0),
       nextAngle: angle,
     });
   },

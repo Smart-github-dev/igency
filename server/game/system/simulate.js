@@ -66,18 +66,16 @@ function buildingToBulletCollision() {
       response.clear();
       const collided = SAT.testCirclePolygon(bullet.body, build.body, response);
       if (collided) {
+        var angleInRadians = Math.atan2(
+          response.overlapV.y,
+          response.overlapV.x
+        );
         if (!build.heavy) {
-          response.overlapV.scale(build.weight / 1000);
-          var angleInRadians = Math.atan2(
-            response.overlapV.y,
-            response.overlapV.x
-          );
-          response.overlapV.scale(1 - build.weight / 100);
-          build.nextPos.x += response.overlapV.x;
-          build.nextPos.y += response.overlapV.y;
+          build.nextPos.add(response.overlapV);
           build.nextAngle = angleInRadians / 2;
         }
-        data.bullets.splice(i, 1);
+        bullet.body.pos.sub(response.overlapV.scale(0.5));
+        bullet.angle = -angleInRadians + Math.PI * 2;
       }
     });
     if (!build.heavy) {
@@ -89,7 +87,7 @@ function buildingToBulletCollision() {
             build.body,
             response
           );
-          if (collided) {
+          if (collided && !build.heavy) {
             if (response.aInB || response.bInA) {
             } else {
               response.overlapV.scale(0.5);

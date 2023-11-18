@@ -22,7 +22,7 @@ let buildings = {
 
       render.ctx.strokeStyle = "black"; // Border color
       render.ctx.lineWidth = 2; // Border width
-      render.ctx.fillStyle = "lightblue"; // Fill color
+      render.ctx.fillStyle = build.type == "block" ? "#4d4d4d" : "#993300"; // Fill color
 
       render.ctx.fill(); // Fill the polygon with the fill color
       render.ctx.stroke(); // Draw the border of the polygon
