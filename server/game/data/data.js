@@ -11,7 +11,7 @@ let data = {
   bullets: [],
   buildings: [],
   plants: [],
-  bullets: [],
+  particles: [],
   rules: {
     players: {
       speed: 1.7,

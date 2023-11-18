@@ -1,14 +1,26 @@
 let data = require("../data/data.js");
 
 let definitions = require("../definitions/definitions.js");
-
+const SAT = require("sat");
+var V = function (x, y) {
+  return new SAT.Vector(x, y);
+};
+var P = function (pos, points) {
+  return new SAT.Polygon(pos, points);
+};
+var C = function (pos, r) {
+  return new SAT.Circle(pos, r);
+};
+var B = function (pos, w, h) {
+  return new SAT.Box(pos, w, h);
+};
 let bullets = {
   calculatePositions: function () {
     data.bullets.forEach((bullet, i) => {
       let radians = bullet.angle;
       let distance = bullet.speed;
-      bullet.x = bullet.x - Math.sin(radians) * distance;
-      bullet.y = bullet.y + Math.cos(radians) * distance;
+      bullet.body.pos.x = bullet.body.pos.x - Math.sin(radians) * distance;
+      bullet.body.pos.y = bullet.body.pos.y + Math.cos(radians) * distance;
       if (bullet.effective_range < 0) {
         this.destory(i);
       } else {
@@ -28,9 +40,13 @@ let bullets = {
       let angle = gun.position.right.angle;
       data.bullets.push({
         type: gun.id,
-
-        x: gun.position.right.x - (Math.sin(angle) * gun.height) / 2,
-        y: gun.position.right.y + (Math.cos(angle) * gun.height) / 2,
+        body: C(
+          V(
+            gun.position.right.x - (Math.sin(angle) * gun.height) / 2,
+            gun.position.right.y + (Math.cos(angle) * gun.height) / 2
+          ),
+          4
+        ),
         angle: angle,
         speed: gun.bullets.speed,
         damage: gun.bullets.damage,

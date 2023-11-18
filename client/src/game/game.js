@@ -24,6 +24,7 @@ import { slots } from "./ui/slots.js";
 
 import { weapons } from "./models/weapons.js";
 import { bullets } from "./models/bullets.js";
+import { buildings } from "./models/buildings.js";
 
 let game = {
   preload: function () {
@@ -98,6 +99,7 @@ let game = {
           weapons.render();
           bullets.render();
           players.renderHands();
+          buildings.render();
           camera.stop();
           healthbar.render();
           slots.render();
